@@ -43,11 +43,71 @@ img {
   background-color: white;
 }
 .joystick {
+  position: relative;
   width: 80%;
   max-width: 42vh;
   height: auto;
 }
 .joystick > img {
+  position: relative;
   display: block;
   width: 100%;
+  z-index: 1;
+}
+.btn-container {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+.btn {
+  position: absolute;
+  width: 16%;
+  height: 24%;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+
+  opacity: 0;
+  cursor: pointer;
+  /*to have text for screen readers */
+  overflow: hidden;
+  text-indent: -20000px;
+}
+.btn:hover,
+.btn:focus {
+  opacity: 1;
+}
+.btn-top {
+  top: 13.5%;
+  left: -7.5%;
+  background-color: transparent;
+  border: 2px dashed white;
+  box-shadow: -1px -1px 5px white;
+}
+.btn-y {
+  top: 23.5%;
+  left: 41.7%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0) 40%, rgb(247, 238, 111) 90%);
+}
+
+.btn-a {
+  bottom: 15%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0) 40%, rgb(115, 240, 122) 90%);
+}
+
+.btn-b {
+  top: 42.5%;
+  right: 29.5%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0) 40%, rgb(240, 115, 115) 90%);
+}
+.btn-x {
+  left: 28.5%;
+  top: 42%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0) 40%, rgb(115, 215, 240) 90%);
 }

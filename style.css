@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  padding: 1vh 1rem;
+  background-color: #ffffff;
+}
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100vh;
+  min-height: 94vh;
+  margin: auto;
+}
+.tv {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.tv > img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+.screen {
+  position: absolute;
+  top: 2.5%;
+  width: 97%;
+  left: 1.5%;
+  height: 80%;
+  background-color: white;
+}
+.joystick {
+  width: 80%;
+  max-width: 42vh;
+  height: auto;
+}
+.joystick > img {
+  display: block;
+  width: 100%;
+}

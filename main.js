@@ -9,21 +9,28 @@ function onClick(e) {
   }
 }
 const controller = {
-  screen: document.getElementById("screen"),
+  view: document.getElementById("view"),
+  iframe: this.view.querySelector(".iframe"),
 
-  onOff: () => {
+  onOff: function () {
     console.log("on off");
+    this.view.classList.toggle("off");
+    if (!this.iframe.classList.contains("off")) {
+      this.iframe.classList.add("off");
+    }
   },
-  goTv: () => {
-    console.log("tv");
+  goTv: function () {
+    if (this.iframe.classList.contains("off")) {
+      this.iframe.classList.remove("off");
+    }
   },
-  goBack: () => {
+  goBack: function () {
     console.log("back");
   },
-  goShop: () => {
+  goShop: function () {
     console.log("shop");
   },
-  goGoogle: () => {
+  goGoogle: function () {
     console.log("google");
   },
 };

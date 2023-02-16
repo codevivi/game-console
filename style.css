@@ -7,11 +7,15 @@ body {
   min-height: 100vh;
   padding: 1vh 1rem;
   background-color: #ffffff;
+  font-family: sans-serif;
 }
 img {
   display: block;
   width: 100%;
   height: auto;
+}
+ul {
+  list-style: none;
 }
 .container {
   display: flex;
@@ -40,7 +44,24 @@ img {
   width: 97%;
   left: 1.5%;
   height: 80%;
-  background-color: white;
+  background-color: black;
+}
+.view {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.view.off {
+  display: none;
+}
+.view .iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+}
+.view .iframe.off {
+  visibility: hidden;
 }
 .joystick {
   position: relative;
@@ -48,6 +69,7 @@ img {
   max-width: 42vh;
   height: auto;
 }
+/* joystick */
 .joystick > img {
   position: relative;
   display: block;
@@ -110,4 +132,58 @@ img {
   left: 28.5%;
   top: 42%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0) 40%, rgb(115, 215, 240) 90%);
+}
+
+/* Home/Hello screen */
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgb(11, 70, 11);
+  color: white;
+  min-height: 100%;
+}
+.hello-msg {
+  display: block;
+  font-weight: normal;
+  text-align: center;
+  max-width: 50%;
+}
+.home li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin: 0.2rem 1rem;
+}
+.home li.active {
+  font-weight: bold;
+}
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  box-shadow: 1px 2px 5px inset rgba(255, 255, 255, 0.5);
+  background-color: black;
+  border-radius: 50%;
+}
+.icon img {
+  border-radius: 50%;
+}
+.icon.green {
+  color: green;
+}
+.icon.red {
+  color: red;
+}
+.icon.blue {
+  color: blue;
+}
+.icon.yellow {
+  color: yellow;
 }

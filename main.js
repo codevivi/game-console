@@ -1,5 +1,36 @@
 "use strict";
-
+const games = [
+  {
+    name: "Screeps: World",
+    price: "14.99",
+    imgSrc: "./img/games/screeps.png",
+  },
+  {
+    name: "The Talos Principle",
+    price: "24.99",
+    imgSrc: "./img/games/talos.png",
+  },
+  {
+    name: "Rust",
+    price: "34.99",
+    imgSrc: "./img/games/rust.png",
+  },
+  {
+    name: "The Long Dark",
+    price: "27.79",
+    imgSrc: "./img/games/dark.png",
+  },
+  {
+    name: "Sid Meier's Civilization® IV",
+    price: "9.99",
+    imgSrc: "./img/games/civ.png",
+  },
+  {
+    name: "Kerbal Space Program",
+    price: "29.99",
+    imgSrc: "./img/games/kerbal.png",
+  },
+];
 const buttonsContainerEl = document.getElementById("buttons");
 buttonsContainerEl.addEventListener("click", changeView);
 
@@ -41,7 +72,7 @@ const viewController = {
     this.removeViewContentEl();
   },
   goShop: function () {
-    console.log("shop");
+    this.addViewContentEl(createIframe("./shop.html"));
   },
   goGoogle: function () {
     this.addViewContentEl(createIframe("https://www.google.com/search?igu=1"));
@@ -52,6 +83,7 @@ const viewController = {
       this.viewContentEl.replaceWith(el);
       this.viewContentEl = el;
     } else {
+      console.log(el);
       this.viewEl.prepend(el);
       this.viewContentEl = el;
     }
@@ -64,7 +96,7 @@ const viewController = {
     }
   },
 };
-function createShopEl(games) {}
+
 function createIframe(src) {
   const el = document.createElement("iframe");
   el.src = src;

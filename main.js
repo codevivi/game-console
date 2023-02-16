@@ -1,4 +1,5 @@
 "use strict";
+
 const buttonsContainerEl = document.getElementById("buttons");
 buttonsContainerEl.addEventListener("click", changeView);
 
@@ -12,11 +13,11 @@ const viewController = {
   isOn: false,
   helloMsg: "Hello! homeworks.done ? X : A",
   byeMsg: "Good bye...",
-  viewEl: document.getElementById("view"),
   msgEl: document.querySelector(".home-msg"),
-  iframeEl: null,
+  viewEl: document.getElementById("view"),
+  viewContentEl: null,
   onOff: function () {
-    this.removeIframe();
+    this.removeViewContentEl();
     if (this.isOn) {
       this.msgEl.textContent = this.byeMsg;
       buttonsContainerEl.removeEventListener("click", changeView);
@@ -33,36 +34,37 @@ const viewController = {
   },
   goTv: function () {
     const el = createYoutubeIframe("https://www.youtube.com/embed/y-28CssnqEE");
-    this.addIframe(el);
+    this.addViewContentEl(el);
   },
   goBack: function () {
     console.log("back");
-    this.removeIframe();
+    this.removeViewContentEl();
   },
   goShop: function () {
     console.log("shop");
   },
   goGoogle: function () {
-    this.addIframe(createIframe("https://www.google.com/search?igu=1"));
+    this.addViewContentEl(createIframe("https://www.google.com/search?igu=1"));
   },
-  addIframe(el) {
+  addViewContentEl(el) {
     this.viewEl.classList.add("loading");
-    if (this.iframeEl) {
-      this.iframeEl.replaceWith(el);
-      this.iframeEl = el;
+    if (this.viewContentEl) {
+      this.viewContentEl.replaceWith(el);
+      this.viewContentEl = el;
     } else {
       this.viewEl.prepend(el);
-      this.iframeEl = el;
+      this.viewContentEl = el;
     }
   },
-  removeIframe() {
+  removeViewContentEl() {
     this.viewEl.classList.remove("loading");
-    if (this.iframeEl) {
-      this.iframeEl.remove();
-      this.iframeEl = null;
+    if (this.viewContentEl) {
+      this.viewContentEl.remove();
+      this.viewContentEl = null;
     }
   },
 };
+function createShopEl(games) {}
 function createIframe(src) {
   const el = document.createElement("iframe");
   el.src = src;

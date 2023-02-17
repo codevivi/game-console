@@ -1,36 +1,5 @@
 "use strict";
-const games = [
-  {
-    name: "Screeps: World",
-    price: "14.99",
-    imgSrc: "./img/games/screeps.png",
-  },
-  {
-    name: "The Talos Principle",
-    price: "24.99",
-    imgSrc: "./img/games/talos.png",
-  },
-  {
-    name: "Rust",
-    price: "34.99",
-    imgSrc: "./img/games/rust.png",
-  },
-  {
-    name: "The Long Dark",
-    price: "27.79",
-    imgSrc: "./img/games/dark.png",
-  },
-  {
-    name: "Sid Meier's Civilization® IV",
-    price: "9.99",
-    imgSrc: "./img/games/civ.png",
-  },
-  {
-    name: "Kerbal Space Program",
-    price: "29.99",
-    imgSrc: "./img/games/kerbal.png",
-  },
-];
+
 const buttonsContainerEl = document.getElementById("buttons");
 buttonsContainerEl.addEventListener("click", changeView);
 
@@ -43,7 +12,7 @@ function changeView(e) {
 const viewController = {
   isOn: false,
   helloMsg: "Hello! homeworks.done ? X : A",
-  byeMsg: "Good bye...",
+  byeMsg: "Bye...",
   msgEl: document.querySelector(".home-msg"),
   viewEl: document.getElementById("view"),
   viewContentEl: null,
@@ -72,7 +41,7 @@ const viewController = {
     this.removeViewContentEl();
   },
   goShop: function () {
-    this.addViewContentEl(createIframe("./shop.html"));
+    this.addViewContentEl(createIframe("./shop/index.html"));
   },
   goGoogle: function () {
     this.addViewContentEl(createIframe("https://www.google.com/search?igu=1"));
@@ -100,21 +69,15 @@ const viewController = {
 function createIframe(src) {
   const el = document.createElement("iframe");
   el.src = src;
+  el.width = "100%";
+  el.height = "315";
+  el.frameborder = "0";
+  el.setAttribute("allowfullscreen", true);
   return el;
 }
 function createYoutubeIframe(src) {
   const el = createIframe(src);
-  el.width = "100%";
-  el.height = "315";
   el.title = "Youtube video player";
-  el.frameborder = "0";
-  el.allow = "accelerometer";
-  el.setAttribute("autoplay", true);
-  el.setAttribute("clipboard-write", true);
-  el.setAttribute("encrypted-media", true);
-  el.setAttribute("gyroscope", true);
-  el.setAttribute("picture-in-picture", true);
-  el.setAttribute("web-share", true);
-  el.setAttribute("allowfullscreen", true);
+  el.allow = "accelerometer; autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share";
   return el;
 }

@@ -6,7 +6,7 @@ HTML, CSS, JS
 
 🌐 **Site published at**: [https://codevivi.github.io/game-console/](https://codevivi.github.io/game-console/)
 
-📈 **Status**: Done. (Open for future modifications)
+![alt app screenshot](./img/screenshot.png)
 
 🚀 **Goals/Features:**
 
